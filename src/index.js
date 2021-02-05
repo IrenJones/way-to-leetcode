@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MainPage from './components/main/Main';
+import FullTable from './components/fullist/Table';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    {/* <App />  */}
+    <Switch>
+      <Route path="/" component={MainPage} />
+      <Route path="/all" component={FullTable} />
+    </Switch>
+  </Router>,
   document.getElementById('root')
 );
 

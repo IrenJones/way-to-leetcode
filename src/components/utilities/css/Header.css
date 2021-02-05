@@ -1,0 +1,11 @@
+.Header {
+    background-color: #EDA731!important;
+}
+
+.toolbar {
+    padding-right: 79px;
+    padding-left: 118px;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
