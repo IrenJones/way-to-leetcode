@@ -5,6 +5,10 @@ import "./css/Header.css"
 
 const headersData = [
     {
+        label: "Main",
+        href: "/main",
+    },
+    {
         label: "All tasks",
         href: "/all",
     },
@@ -26,9 +30,8 @@ const getMenuButtons = () => {
             <Button
                 key={label}
                 color="inherit"
-                to = "href"
-                component = "RouterLink"
-            >
+                to = {href}
+                component = {RouterLink} >
                 {label}
             </Button>
         );

@@ -5,14 +5,17 @@ import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from './components/main/Main';
-import FullTable from './components/fullist/Table';
+import FullTable from './components/fullist/FullTable';
+import About from './components/about/About'
 
 ReactDOM.render(
   <Router>
     {/* <App />  */}
     <Switch>
-      <Route path="/" component={MainPage} />
+      <Route exact path="/" component={MainPage} />
+      <Route path="/main" component={MainPage} />
       <Route path="/all" component={FullTable} />
+      <Route path="/about" component={About} />
     </Switch>
   </Router>,
   document.getElementById('root')
