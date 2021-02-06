@@ -1,5 +1,6 @@
 .container-div{ 
-    position: relative;
+    padding-top: 100px;
+    border-left-width: 50px;
 }
 
 .div-table{

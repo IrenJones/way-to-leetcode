@@ -1,5 +1,4 @@
 import Header from '../utilities/Header';
-
 import React from 'react'
 import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
@@ -38,6 +37,7 @@ const Styles = styled.div`
     padding: 0.5rem;
   }
 `
+const serverData = [];
 
 // Let's add a fetchData method to our Table component that will be used to fetch
 // new data when pagination state changes
@@ -52,8 +52,8 @@ function Table({
    const {
       getTableProps,
       getTableBodyProps,
-      headerGroups,
       prepareRow,
+      headers,
       page,
       canPreviousPage,
       canNextPage,
@@ -84,26 +84,23 @@ function Table({
       fetchData({ pageIndex, pageSize })
    }, [fetchData, pageIndex, pageSize])
 
+
    // Render the UI for your table
    return (
       <>
          <table {...getTableProps()}>
             <thead>
-               {headerGroups.map(headerGroup => (
-                  <tr {...headerGroup.getHeaderGroupProps()}>
-                     {headerGroup.headers.map(column => (
-                        <th {...column.getHeaderProps()}>
-                           {column.render('Header')}
-                           <span>
-                              {column.isSorted
-                                 ? column.isSortedDesc
-                                    ? ' 🔽'
-                                    : ' 🔼'
-                                 : ''}
-                           </span>
-                        </th>
-                     ))}
-                  </tr>
+               {headers.map(column => (
+                  <th {...column.getHeaderProps()}>
+                     {column.render('Header')}
+                     <span>
+                        {column.isSorted
+                           ? column.isSortedDesc
+                              ? ' 🔽'
+                              : ' 🔼'
+                           : ''}
+                     </span>
+                  </th>
                ))}
             </thead>
             <tbody {...getTableBodyProps()}>
@@ -182,16 +179,11 @@ function Table({
    )
 }
 
-const serverData = getData(1000)
-
-
 function FullTable() {
    return (
       <div>
          <Header />
-         <hr/>
-         <Content className="container-div" />
-         <hr/>
+         <div className="container-div"> <Content /></div>
          <Footer />
       </div>
    );
@@ -202,25 +194,20 @@ function Content() {
    const columns = React.useMemo(
       () => [
          {
-            Header: 'Info',
-            columns: [
-               {
-                  Header: 'Task Name',
-                  accessor: 'name',
-               },
-               {
-                  Header: 'Times solved',
-                  accessor: 'times',
-               },
-               {
-                  Header: 'Link to task',
-                  accessor: 'link',
-               },
-               {
-                  Header: 'Last time solved',
-                  accessor: 'date',
-               },
-            ],
+            Header: 'Task Name',
+            accessor: 'name',
+         },
+         {
+            Header: 'Times solved',
+            accessor: 'times',
+         },
+         {
+            Header: 'Link to task',
+            accessor: 'link',
+         },
+         {
+            Header: 'Last time solved',
+            accessor: 'date',
          },
       ],
       []
@@ -231,6 +218,11 @@ function Content() {
    const [loading, setLoading] = React.useState(false)
    const [pageCount, setPageCount] = React.useState(0)
    const fetchIdRef = React.useRef(0)
+
+   React.useEffect(() => {
+      (async () => setData(await getData()))();
+   }, []);
+
 
    const fetchData = React.useCallback(({ pageSize, pageIndex }) => {
       // This will get called when the table needs new data
@@ -243,21 +235,20 @@ function Content() {
       // Set the loading state
       setLoading(true)
 
-      // We'll even set a delay to simulate a server here
-      setTimeout(() => {
-         // Only update the data if this is the latest fetch
-         if (fetchId === fetchIdRef.current) {
-            const startRow = pageSize * pageIndex
-            const endRow = startRow + pageSize
-            setData(serverData.slice(startRow, endRow))
 
-            // Your server could send back total page count.
-            // For now we'll just fake it, too
-            setPageCount(Math.ceil(serverData.length / pageSize))
+      // Only update the data if this is the latest fetch
+      if (fetchId === fetchIdRef.current) {
+         const startRow = pageSize * pageIndex
+         const endRow = startRow + pageSize
+         setData(serverData.slice(startRow, endRow))
 
-            setLoading(false)
-         }
-      }, 1000)
+         // Your server could send back total page count.
+         // For now we'll just fake it, too
+         setPageCount(Math.ceil(serverData.length / pageSize))
+
+         setLoading(false)
+      }
+
    }, [])
 
    return (
