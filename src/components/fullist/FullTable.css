@@ -5,6 +5,22 @@ body {
 .container-div{
     position: relative; 
     padding-top: 100px;
-    padding-left: 100px;
     height: auto;
+    align-items: left;
+    justify-content: left;
+}
+
+.container-div-button {
+    position: absolute;
+    top: 8rem;
+    left: 1rem;
+}
+
+.buttons {
+    margin: 0 10px;
+}
+
+.tableData {
+    padding-left: 150px;
+    width: 90%;
 }

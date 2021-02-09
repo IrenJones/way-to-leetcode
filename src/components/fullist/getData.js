@@ -1,14 +1,13 @@
 import firebase from '../../firebase.js';
 
-export default async function getData() {
-  // const dataArray = () => {
+export default async function getData(sheetName) {
+
     let array = [];
     const snapshot = await firebase.database()
     .ref('/')
     .once('value');
-    // .then((snapshot) => {
-      snapshot.forEach(function (childSnapshot) {
-        let items = childSnapshot.val().Easy;
+    snapshot.forEach(function (childSnapshot) {
+        let items = childSnapshot.val()[sheetName];
         for (let item in items) {
           array.push({
             name: items[item].name,
@@ -17,9 +16,6 @@ export default async function getData() {
             date: items[item].lastSolved,
           });
         }
-      // });
     });
     return array;
-  // }
-  // return dataArray();
 };
