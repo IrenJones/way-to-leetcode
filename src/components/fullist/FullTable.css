@@ -1,25 +1,10 @@
-.container-div{ 
+body {
+    margin-bottom:50px;
+}
+
+.container-div{
+    position: relative; 
     padding-top: 100px;
-    border-left-width: 50px;
-}
-
-.div-table{
-    padding: 1rem;
-}   
-
-table {
-    border-spacing: 0;
-    border: 1px solid black;
-}
-
-th, td {
-      margin: 0;
-      padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
-}
-
-.pagination {
-    padding: 0.5rem;
+    padding-left: 100px;
+    height: auto;
 }

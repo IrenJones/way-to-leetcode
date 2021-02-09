@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import 'bootstrap-css-only/css/bootstrap.min.css'; 
+import 'mdbreact/dist/css/mdb.css';
+
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from './components/main/Main';
-import FullTable from './components/fullist/FullTable';
+import FullTable from './components/fullist/TableFull';
 import About from './components/about/About'
 
 ReactDOM.render(

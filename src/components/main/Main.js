@@ -20,7 +20,7 @@ function MainPage() {
 function Content() {
        return (
           <div className="container-div">
-         <img src={PlatypusGif} alt="loading..." />
+         {/* <img src={PlatypusGif} alt="loading..." /> */}
          <Loading className = "loading"/>
           </div>
        );

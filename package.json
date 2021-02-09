@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.6.3",
     "firebase": "^8.0.2",
     "history": "5.0.0",
+    "mdbreact": "^5.0.1",
     "namor": "^2.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
