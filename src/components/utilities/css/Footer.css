@@ -33,3 +33,18 @@ span:first-of-type {
 span:last-of-type {
   margin-right: 0;
 }
+
+a {
+  margin: 0 5px;
+  color: white;
+}
+
+a:hover {
+  color: black;
+}
+
+.imgSizer {
+  filter: invert(100%) sepia(6%) saturate(3%) hue-rotate(90deg) brightness(107%) contrast(100%);
+  height: 1pc;
+  width: 1pc;
+}
