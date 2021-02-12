@@ -6,7 +6,7 @@ import "./css/Header.css"
 const headersData = [
     {
         label: "Main",
-        href: "/main",
+        href: "/",
     },
     {
         label: "All tasks",

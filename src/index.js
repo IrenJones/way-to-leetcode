@@ -18,7 +18,6 @@ ReactDOM.render(
     {/* <App />  */}
     <Switch>
       <Route exact path="/" component={MainPage} />
-      <Route path="/main" component={MainPage} />
       <Route path="/all" component={FullTable} />
       <Route path="/about" component={About} />
     </Switch>
