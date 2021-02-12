@@ -3,14 +3,22 @@ body {
 }
 
 .container-div{ 
-    position: relative;
-    display: flex;
-    width: 100%; 
-    align-items: center;
-    justify-content: center;
+    position: relative; 
+    padding-top: 100px;
     height: 100%;
 }
 
-.loading {
-    background: rgb(219, 136, 80);
+.platypusPic {
+    position:absolute;
+    top: 230px;
+    margin-left: 20%;
+    z-index: 1;
+}
+
+.darkLink{
+    color:orange;
+}
+
+.textContent {
+    margin-left: 15%;
 }
