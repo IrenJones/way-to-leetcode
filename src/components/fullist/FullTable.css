@@ -2,7 +2,7 @@ body {
     margin-bottom:50px;
 }
 
-.container-div{
+.container-div-table{
     position: relative; 
     padding-top: 100px;
     height: auto;
@@ -21,6 +21,6 @@ body {
 }
 
 .tableData {
-    padding-left: 150px;
+    padding-left: 250px;
     width: 90%;
 }

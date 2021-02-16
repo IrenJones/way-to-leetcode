@@ -2,9 +2,27 @@ body {
     margin-bottom:50px;
 }
 
-.container-div{ 
-    position: relative;
-    padding-top: 100px;
-    padding-left: 100px;
-    height: 90%;
+.container-div-about{
+    position: relative; 
+    padding-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileImg {
+    height: 300px;
+    box-shadow: 0 0 8px 8px white inset;
+}
+
+.tableAbout {
+    background: linear-gradient(white, #f3f3e8,white);
+    border-collapse:separate; 
+    border-spacing:4em;
+}
+
+.darkLink{
+    color:orange;
 }

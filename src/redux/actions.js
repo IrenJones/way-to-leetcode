@@ -12,6 +12,5 @@ export const DATA_UPDATE = (data) => ({
 
 export function setSelectedSheet(dispatch, sheetName) {
     dispatch(TABLE_SET_SHEET(sheetName));
-
     dispatch(fetchData);
 }
